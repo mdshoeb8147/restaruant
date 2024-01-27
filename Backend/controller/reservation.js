@@ -14,7 +14,7 @@ export const sendReservation = async (req, res, next) => {
     });
   } catch (err) {
     if (err.name === "validationError") {
-      const validationErrors = Object.values(error.errors).map(
+      const validationErrors = Object.values(err.errors).map(
         (err) => err.message
       );
       return next(new ErrorHandler(validationErrors.join(","), 400));
