@@ -12,13 +12,13 @@ export const sendReservation = async (req, res, next) => {
       success: true,
       message: "Reservation send Successfully!",
     });
-  } catch (err) {
-    if (err.name === "validationError") {
-      const validationErrors = Object.values(err.errors).map(
+  } catch (error) {
+    if (error.name === "validationError") {
+      const validationErrors = Object.values(error.errors).map(
         (err) => err.message
       );
       return next(new ErrorHandler(validationErrors.join(","), 400));
     }
-    return next(err);
+    return next(error);
   }
 };
