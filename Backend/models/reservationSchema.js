@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
 
-const reservationSchema = new mongoose.Schema(
+const ReservationSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
@@ -38,4 +38,4 @@ const reservationSchema = new mongoose.Schema(
   {}
 );
 
-export const Reservation = new mongoose.model(Reservation, reservationSchema);
+export const Reservation = new mongoose.model("Reservation", ReservationSchema);
